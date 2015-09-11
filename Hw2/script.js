@@ -95,8 +95,8 @@ function update(error, data) {
     a.exit().remove();
     a.attr("y", 0)
         .attr("x", function (d, i) {
-            //  i=i+20;
-            return iScale(i);
+             i=i*10;
+            return i;
         })
         .attr("height", function (d, i) {
             return d.a*10;
@@ -127,10 +127,11 @@ var b=
         .classed("barChart", true);
     b.exit().remove();
        b .attr("y", 0)
+
         .attr("x", function (d, i) {
-            //  i=i+20;
+              i=i*10;
             //return i*10+10;
-            return iScale(i);
+            return i;
         })
         .attr("height", function (d, i) {
             return d.b*10;
