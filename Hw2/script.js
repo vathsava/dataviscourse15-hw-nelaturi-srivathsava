@@ -220,7 +220,7 @@ var b=
         .on("mouseover", function(d) {
            var x=d3.select(this).attr("cx");
             var y=    d3.select(this).attr("cy");
-
+             console.log(x+" , "+y);
          var new_x= d3.select("#te");
                 var p = d3.selectAll("p");
                 p.text(x+","+y);
