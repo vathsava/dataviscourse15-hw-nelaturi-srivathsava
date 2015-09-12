@@ -104,10 +104,10 @@ function update(error, data) {
         })
         .attr("width",10)
         .on("mouseover", function(d) {
-            d3.select(this).attr("fill", "seagreen");
+            d3.select(this).style("fill", "black");
         })
         .on("mouseout", function(d) {
-            d3.select(this).attr("fill", "steelblue");
+            d3.select(this).style("fill", "steelblue");
         });
    // a.exit().remove();
 
@@ -138,10 +138,10 @@ var b=
         })
         .attr("width",10)
         .on("mouseover", function(d) {
-            d3.select(this).attr("class", "barChartHover");
+            d3.select(this).style("fill", "black");
         })
         .on("mouseout", function(d) {
-            d3.select(this).attr("class", "barChart");
+            d3.select(this).style("fill", "steelblue");
         });
 
     // TODO: Select and update the 'a' line chart path using this line generator
@@ -218,10 +218,20 @@ var b=
          })
         .attr("r", 5)
         .on("mouseover", function(d) {
+           var x=d3.select(this).attr("cx");
+            var y=    d3.select(this).attr("cy");
 
-            console.log(d3.select(this).attr("cx")+","+d3.select(this).attr("cy"));
+         var new_x= d3.select("#te");
+                var p = d3.selectAll("p");
+                p.text(x+","+y);
 
-        });
+        })
+            .on("mouseout", function(d) {
+
+
+            }
+
+        );
 
 
 
