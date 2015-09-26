@@ -42,8 +42,8 @@ var x="";
     {
         x="";
     }
-  //  document.getElementById("info").innerHTML=JSON.stringify(x);
-  }
+   // document.getElementById("info").innerHTML=JSON.stringify(x);
+   }
     function clearHover() {
     setHover(null);
 }
