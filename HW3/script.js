@@ -287,8 +287,16 @@ function updateMap() {
         .translate([width / 2, height / 2]).scale([700]);
     Location_data =  d3.values(locationData);
     location_keys = d3.keys(locationData);
+    var selectedLocationArray = [];
+    for(x in selectedSeries)
+    {
+        lat = selectedSeries[x]["latitude"];
+        long = selectedSeries[x]["longitude"];
+        selectedLocationArray.push(lat+ ","+long);
+    }
 
-var cl;
+
+    var cl;
     var sum=0;
   var c=  d3.select("#points").selectAll("circle").data(Location_data);
 
@@ -316,17 +324,26 @@ var cl;
 
 
         //.attr("class","circles")
-            .style("fill",function(d){
-
-                for(i=0;i<d["games"].length;i++)
+            .attr("fill",function(d){
+                var locString = d.latitude+","+ d.longitude;
+                var sum = 0;
+                console.log("pointerrrrr");
+                console.log(d);
+                if(selectedLocationArray.indexOf(locString) > -1)
                 {
-                    // console.log(d["games"][i]["attendance"]);
-                    if (isObjectInArray(d["games"][i], selectedSeries)) {
-                       console.log(colorScale(sum/x)+","+"in map");
-                        return colorScale(sum);
+                    var games = d["games"];
+
+                    for(x in games)
+                    {
+                        sum = sum + games[x].attendance;
                     }
+                    console.log("Sum is "+(sum/games.length));
+                    return colorScale(sum/games.length);
                 }
-                return "black";
+                else
+                {
+                    return "black";
+                }
             })
         .on("click",function(d){ changeSelection(d);})
         .on("mouseover", function(d) {setHover(d);});
