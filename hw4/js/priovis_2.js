@@ -17,7 +17,7 @@
  * */
 
 /**
- * PrioVis object for HW4
+ * PrioVis_@ object for HW4
  * @param _parentElement -- the (D3-selected) HTML or SVG element to which to attach the vis
  * @param _data -- the data array
  * @param _metaData -- the meta-data / data description object
@@ -206,10 +206,7 @@ PrioVis.prototype.filterAndAggregate = function (from, to) {
     // Set filter to a function that accepts all items
     // ONLY if the parameter _filter is NOT null use this parameter
     var prioData=[];
-    /*var filter = function(from , to) {return true;};
-     if (_filter !== null){
-     filter = _filter;
-     }*/
+
 
     // ******* TASK 1b *******
     // Implement the function that filters the data and sums the values

@@ -203,23 +203,14 @@ PrioVis.prototype.filterAndAggregate = function (from, to) {
     // Set filter to a function that accepts all items
     // ONLY if the parameter _filter is NOT null use this parameter
     var prioData=[];
-    /*var filter = function(from , to) {return true;};
-    if (_filter !== null){
-        filter = _filter;
-    }*/
-    
-    // ******* TASK 1b *******
-    // Implement the function that filters the data and sums the values
-    
-    // create an array of values for the priorities 0-15
-    
-    // accumulate all values that fulfill the filter criterion
+
+
 
     for(var i=0;i< 16 ;i++)
     {
         var count =0;
         self.data.forEach(function(d){
-            //console.log(d.time.getFullYear()+"-"+ d.time.getMonth()+"-"+ d.time.getDate());
+
             var currentDate = dateFormatter.parse(d.time.getFullYear()+"-"+ d.time.getMonth()+"-"+ d.time.getDate());
             if(currentDate>=from && currentDate<=to)
                 count += d.prios[i];

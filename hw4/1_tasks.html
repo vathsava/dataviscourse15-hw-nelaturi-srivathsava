@@ -63,13 +63,7 @@
 
         function allLoaded(error, perDay, meta) {
             metaData = meta;
-            /*allData = pd3.map(perDay,function (d) {
-                var res = {
-                    time: dateFormatter.parse(d.day),
-                    count: +d["count(*)"]
-                };
-                return res;
-            });*/
+
             allData=perDay;
             tester.allLoaded(allData, metaData);
 

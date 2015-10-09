@@ -46,6 +46,7 @@ var ageVis;
          countVis = new CountVis(d3.select("#countVis"), allData, metaData, eventHandler);
         ageVis = new AgeVis(d3.select("#ageVis"), allData, metaData);
         prioVis = new PrioVis(d3.select("#prioVis"), allData, metaData);
+        prioVis_2 = new PrioVis(d3.select("#prioVis_2"), allData, metaData);
         
         // ******** TASK 3b, 3c *******
         // Bind the eventHandler to the Vis Objects
@@ -54,13 +55,13 @@ var ageVis;
         // (you should bind the appropriate functions here)
         // Also make sure to display something reasonable about
         // the brush in #brushInfo
-  /*
+
         selectionChanged=function(startRange,endRange){
           ageVis.onSelectionChange(startRange,endRange);
             prioVis.onSelectionChange(startRange,endRange);
             countVis.onSelectionChange(startRange,endRange);
 
-        }*/
+        }
     }
 
     // call this function after both files are loaded -- error should be "null" if no error
