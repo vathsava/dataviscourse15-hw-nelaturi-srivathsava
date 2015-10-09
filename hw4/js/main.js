@@ -46,7 +46,7 @@ var ageVis;
          countVis = new CountVis(d3.select("#countVis"), allData, metaData, eventHandler);
         ageVis = new AgeVis(d3.select("#ageVis"), allData, metaData);
         prioVis = new PrioVis(d3.select("#prioVis"), allData, metaData);
-        prioVis_2 = new PrioVis(d3.select("#prioVis_2"), allData, metaData);
+        prioVis_2 = new PrioVis_2(d3.select("#prioVis_2"), allData, metaData);
         
         // ******** TASK 3b, 3c *******
         // Bind the eventHandler to the Vis Objects

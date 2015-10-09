@@ -1,6 +1,3 @@
-/**
- * Created by sri on 10/8/2015.
- */
 /*globals d3*/
 
 /**
@@ -17,13 +14,13 @@
  * */
 
 /**
- * PrioVis_@ object for HW4
+ * PrioVis object for HW4
  * @param _parentElement -- the (D3-selected) HTML or SVG element to which to attach the vis
  * @param _data -- the data array
  * @param _metaData -- the meta-data / data description object
  * @constructor
  */
-function PrioVis (_parentElement, _data, _metaData) {
+function PrioVis_2 (_parentElement, _data, _metaData) {
     /**
      * A word about "this":
      *
@@ -54,7 +51,7 @@ function PrioVis (_parentElement, _data, _metaData) {
 /**
  * Method should be called as soon as data is available.. sets up the SVG and the variables
  */
-PrioVis.prototype.initVis = function () {
+PrioVis_2.prototype.initVis = function () {
     var self = this; // read about the this
 
     self.svg = self.parentElement.select("svg");
@@ -113,7 +110,7 @@ PrioVis.prototype.initVis = function () {
  * Method to wrangle the data. In this case it takes an options object
  * @param _filterFunction - a function that filters data or "null" if none
  */
-PrioVis.prototype.wrangleData = function (from,to) {
+PrioVis_2.prototype.wrangleData = function (from,to) {
     var self = this;
 
     // displayData should hold the data which is visualized
@@ -126,7 +123,7 @@ PrioVis.prototype.wrangleData = function (from,to) {
 /**
  * the drawing function - should use the D3 selection, enter, exit
  */
-PrioVis.prototype.updateVis = function () {
+PrioVis_2.prototype.updateVis = function () {
 
 
     var self = this;
@@ -172,7 +169,7 @@ PrioVis.prototype.updateVis = function () {
  * be defined here.
  * @param selection
  */
-PrioVis.prototype.onSelectionChange = function (selectionStart, selectionEnd) {
+PrioVis_2.prototype.onSelectionChange = function (selectionStart, selectionEnd) {
     var self = this;
 
     // call wrangleData with a filter function
@@ -199,7 +196,7 @@ PrioVis.prototype.onSelectionChange = function (selectionStart, selectionEnd) {
  * @param _filter - A filter can be, e.g.,  a function that is only true for data of a given time range
  * @returns {Array|*}
  */
-PrioVis.prototype.filterAndAggregate = function (from, to) {
+PrioVis_2.prototype.filterAndAggregate = function (from, to) {
     var self = this;
 
     var dateFormatter = d3.time.format("%Y-%m-%d");
@@ -208,21 +205,13 @@ PrioVis.prototype.filterAndAggregate = function (from, to) {
     var prioData=[];
 
 
-    // ******* TASK 1b *******
-    // Implement the function that filters the data and sums the values
-
-    // create an array of values for the priorities 0-15
-
-    // accumulate all values that fulfill the filter criterion
 
     for(var i=0;i< 16 ;i++)
     {
         var count =0;
         self.data.forEach(function(d){
-            //console.log(d.time.getFullYear()+"-"+ d.time.getMonth()+"-"+ d.time.getDate());
-            var currentDate = dateFormatter.parse(d.time.getFullYear()+"-"+ d.time.getMonth()+"-"+ d.time.getDate());
-            if(currentDate>=from && currentDate<=to)
-                count += d.prios[i];
+
+            count += d.prios[i];
         });
         prioData.push(count);
     }
