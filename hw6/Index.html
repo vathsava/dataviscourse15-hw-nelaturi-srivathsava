@@ -1,0 +1,106 @@
+<html lang="en">
+
+<head>
+    <title>Homework 6</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        
+        /* Styles that clean up the layout;
+         * you can ignore these (though feel
+         * free to change them if you want to): */
+        h2 {
+            margin: 10px;
+        }
+        div.block,
+        span.header {
+            padding: 10px;
+        }
+        
+        div.block {
+            display: inline-block;
+            border: 1px solid lightgray;
+            margin: 10px;
+        }
+        #renderContainer {
+            position: relative;
+            width: 900px;
+            height: 400px;
+        }
+    </style>
+    <script src="lib/three.min.js"></script>
+    <script src="lib/stats.min.js"></script>
+    <script src="lib/Detector.js"></script>
+    <script src="lib/OrbitControls.js"></script>
+    <script src="lib/VolumeRenderer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <h3>CS-5630 / CS-6630 Homework 6</h3>
+    <span class="header">Srivathsava Nelaturi</span>
+    <span class="header">u0942605@utah.edu</span>
+    <span class="header">u0942605</span>
+
+    <br/>
+    <hr/>
+    
+    <div class="block">
+        <div id="renderContainer"></div>
+    </div>
+    
+    <br/>
+    
+    <div class="block">
+        <span class="header">
+            <select id="volumeMenu">
+                <option>bonsai</option>
+                <option>foot</option>
+                <option>teapot</option>
+            </select>
+        </span>
+        
+        <br/>
+        <hr/>
+
+        <table>
+            <tr>
+                <td><div id="Red" style="height: 30px; width: 60px; background-color: rgb(128,0,0)"></div></td>
+                <td><input id="R" type="range" min="0" max="255" oninput="uRed(value)"></td>
+                <td><div id="RValDiv" style="background-color: rgb(200,200,200); width: 40px; height: 20px; text-align: center ">128</div></td>
+            </tr>
+            <tr>
+                <td><div id="Green" style="height: 30px; width: 60px; background-color: rgb(0,128,0)"></div></td>
+                <td><input id="G" type="range" min="0" max="255" oninput="uGreen(value)"></td>
+                <td><div id="GValDiv" style="background-color: rgb(200,200,200); width: 40px; height: 20px; text-align: center ">128</div></td>
+            </tr>
+            <tr>
+                <td><div id="Blue" style="height: 30px; width: 60px; background-color: rgb(0,0,128)"></div></td>
+                <td><input id="B" type="range" min="0" max="255" oninput="uBlue(value)"></td>
+                <td><div id="BValDiv" style="background-color: rgb(200,200,200); width: 40px; height: 20px; text-align: center">128</div></td>
+            </tr>
+            <tr>
+                <td><div id="Yellow" style="height: 30px; width: 60px; background-color: rgb(255,255,0)"></div></td>
+                <td><input id="Y" type="range" min="0" max="255" oninput="uYellow(value)"></td>
+                <td><div id="YValDiv" style="background-color: rgb(200,200,200); width: 40px; height: 20px; text-align: center">128</div></td>
+            </tr>
+            <tr>
+                <td><div id="Pink" style="height: 30px; width: 60px; background-color: rgb(255,0,255)"></div></td>
+                <td><input id="P" type="range" min="0" max="255" oninput="uPink(value)"></td>
+                <td><div id="PValDiv" style="background-color: rgb(200,200,200); width: 40px; height: 20px; text-align: center">128</div></td>
+            </tr>
+            <tr>
+                <td>Alpha <div id="Alpha" ></div></td>
+                <td><input id="a" type="range" min="0.0" max="1.0" step="0.1" oninput="uAlpha(value)"></td>
+                <td><div id="aValDiv" style="background-color: rgb(200,200,200); width: 40px; height: 20px; text-align: center">0.5</div></td>
+            </tr>
+
+        </table>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
